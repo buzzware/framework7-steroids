@@ -6,9 +6,9 @@
 
   <title>My Steroids App</title>
 
-  <link rel="stylesheet" href="/components/supersonic/css/supersonic.css">
+  <!--<link rel="stylesheet" href="/components/supersonic/css/supersonic.css">-->
   <!-- <link rel="stylesheet" href="/stylesheets/application.css"> -->
-  <link rel="import" href="/components/supersonic/components/import.html">
+  <!-- <link rel="import" href="/components/supersonic/components/import.html"> -->
 
   <script src="http://localhost/cordova.js"></script>
   <script src="/components/steroids-js/steroids.js"></script>
@@ -21,6 +21,14 @@
 
 <H1>RAW STEROIDS</H1>
 
+<!-- 
+If we remove WebComponents, we may need to do something like this below otherwise splash stays up forever. Also see config AutoHideSplashScreen
 
+  <script>  
+  // window.addEventListener('WebComponentsReady', function() {
+  //   supersonic.app.splashscreen.hide();
+  // });
+</script>
+-->
 </body>
 </html>
