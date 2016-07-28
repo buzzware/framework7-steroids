@@ -22,9 +22,9 @@ If it still fails, install nvm (Node Version Manager) and then npm 0.12.0 and tr
 
 ## Install this Project and its dependencies
 
-git clone <this project>
+git clone https://github.com/buzzware/framework7-steroids
 
-cd <this project>
+cd framework7-steroids
 
 bower install
 
@@ -35,5 +35,3 @@ If it complains that some packages are not installed, install them individually 
 npm install grunt@0.4.5 grunt-contrib-copy@0.7.0 grunt-contrib-clean@0.6.0 grunt-contrib-concat@0.5.0 grunt-contrib-coffee@0.12.0 grunt-contrib-sass@0.8.1 grunt-extend-config@0.9.2
 
 steroids connect
-
-
