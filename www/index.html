@@ -1,62 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>My App</title>
+    <!-- Path to Framework7 Library CSS - this example is for iOS -->
+    <link rel="stylesheet" href="css/framework7.ios.min.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
 
-  <title>My Steroids App</title>
-
-  <link rel="stylesheet" href="/components/supersonic/css/supersonic.css">
-  <link rel="stylesheet" href="/stylesheets/application.css">
-  <link rel="import" href="/components/supersonic/components/import.html">
-
+  <!--<link rel="stylesheet" href="/components/supersonic/css/supersonic.css">-->
+  <!-- <link rel="import" href="/components/supersonic/components/import.html"> -->
+  
   <script src="http://localhost/cordova.js"></script>
   <script src="/components/steroids-js/steroids.js"></script>
-  <script src="/components/angular/angular.js"></script>
-  <script src="/components/supersonic/supersonic.js"></script>
+  <script src="/components/supersonic/supersonic.core.js"></script>
+  <!-- We can probably remove webcomponents.js if we figure out how to call supersonic.app.splashscreen.hide(); at the right time from a F7 callback -->
   <script src="/components/webcomponentsjs/webcomponents.js"></script>
 
-  <script src="/scripts/application.js"></script>
 </head>
-<body ng-app="SteroidsApplication">
+<body>
 
-<div class="padding" ng-controller="IndexController">
 
-  <super-navbar>
-    <super-navbar-title ng-bind="navbarTitle">
-    </super-navbar-title>
-  </super-navbar>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+      <div class="content-block">
+        <p>Left panel content goes here</p>
+      </div>
+    </div>
+    <!-- Right panel with cover effect-->
+    <div class="panel panel-right panel-cover">
+      <div class="content-block">
+        <p>Right panel content goes here</p>
+      </div>
+    </div>
+    <!-- Views-->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class-->
+      <div class="view view-main">
+        <!-- Top Navbar-->
+        <div class="navbar">
+          <div class="navbar-inner">
+            <!-- We have home navbar without left link-->
+            <div class="center sliding">Awesome App</div>
+            <div class="right">
+              <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-through toolbar-through">
+          <!-- Page, data-page contains page name-->
+          <div data-page="index" class="page">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+              <div class="content-block-title">Welcome To My Awesome App</div>
+              <div class="content-block">
+                <div class="content-block-inner">
+                  <p>Couple of worlds here because my app is so awesome!</p>
+                  <p>Duis sed erat ac eros ultrices pharetra id ut tellus. Praesent rhoncus enim ornare ipsum aliquet ultricies. Pellentesque sodales erat quis elementum sagittis.</p>
+                </div>
+              </div>
+              <div class="content-block-title">What about simple navigation?</div>
+              <div class="list-block">
+                <ul>
+                  <li><a href="about.html" class="item-link">
+                      <div class="item-content">
+                        <div class="item-inner"> 
+                          <div class="item-title">About</div>
+                        </div>
+                      </div></a></li>
+                  <li><a href="services.html" class="item-link">
+                      <div class="item-content"> 
+                        <div class="item-inner">
+                          <div class="item-title">Services</div>
+                        </div>
+                      </div></a></li>
+                  <li><a href="form.html" class="item-link">
+                      <div class="item-content"> 
+                        <div class="item-inner">
+                          <div class="item-title">Form</div>
+                        </div>
+                      </div></a></li>
+                </ul>
+              </div>
+              <div class="content-block-title">Side panels</div>
+              <div class="content-block">
+                <div class="row">
+                  <div class="col-50"><a href="#" data-panel="left" class="button open-panel">Left Panel</a></div>
+                  <div class="col-50"><a href="#" data-panel="right" class="button open-panel">Right Panel</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Bottom Toolbar-->
+        <div class="toolbar">
+          <div class="toolbar-inner"><a href="#" class="link">Link 1</a><a href="#" class="link">Link 2</a></div>
+        </div>
+      </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
 
-  <p>Awesome! This file is located at <strong>www/index.html</strong> &mdash; open it, change some text, save the file, and press enter in the Terminal window running <strong>$ steroids connect</strong>. The changes are updated to all connected devices. Cool, ain't it?</p>
+<!-- 
+If we remove WebComponents, we may need to do something like this below otherwise splash stays up forever. Also see config AutoHideSplashScreen
 
-  <h3>Using the Scanner App</h3>
-
-  <p>On iOS, to restart your current app or scan another app, <strong>tap and hold on the screen with three fingers.</strong>. This opens the Scanner context menu.</p>
-
-  <p>On Android, press the native back button to return to the scan screen.</p>
-
-  <h3>Working with AngularJS</h3>
-
-  <p>Angular works great with Supersonic native components. Changing the input field below will automatically update the navigation bar title.</p>
-
-  <div class="card padding">
-    <h4>Navigation Bar Title (Look Up!)</h4>
-    <label class="item item-input">
-      <input type="text" ng-model="navbarTitle">
-    </label>
-  </div>
-
-  <p>You can find the AngularJS controller used at:</p>
-
-  <p><strong><small>www/scripts/application.js</small></strong></p>
-
-  <h2>Get in touch with us!</h2>
-
-  <p>Learn more about building apps with Supersonic at <a onclick="supersonic.app.openURL('http://docs.appgyver.com')" href="">http://docs.appgyver.com</a>.</p>
-
-  <p>Feel free to contact us at <a onclick="supersonic.app.openURL('mailto:contact@appgyver.com')" href="">contact@appgyver.com</a>, we would love to get your feedback!</p>
-
-</div>
-
+  <script>  
+  // window.addEventListener('WebComponentsReady', function() {
+  //   supersonic.app.splashscreen.hide();
+  // });
+</script>
+-->
 </body>
 </html>
